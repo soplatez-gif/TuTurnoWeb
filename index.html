@@ -50,6 +50,10 @@
             <a href="#descarga" class="btn btn--primary">Descarga la app</a>
             <a href="#como-funciona" class="btn btn--ghost">Cómo funciona →</a>
           </div>
+          <div class="stats">
+            <div><strong>+500.000</strong><span>descargas</span></div>
+            <div><strong>+50.000</strong><span>usuarios activos</span></div>
+          </div>
           <p class="fineprint">*Aquí no hay rendimientos: recibes lo mismo que pones. TuTurno cobra una comisión única por usar la plataforma, que ves antes de pagar. Aplican <a href="https://tu-turno.app/co/terminos-y-condiciones/" target="_blank" rel="noopener">términos y condiciones</a>.</p>
         </div>
         <div class="hero__media">
@@ -126,7 +130,11 @@
         <div class="example">
           <div class="example__text">
             <h3>Un ejemplo con números</h3>
-            <p>En una cadena de 5 personas con cuotas semanales de <strong>$30.000</strong>, cada semana una persona recibe <strong>$150.000</strong>. Pones $150.000 en total y recibes $150.000: lo mismo que pones.</p>
+            <div class="tabs" role="group" aria-label="Elige un ejemplo">
+              <button type="button" class="tab is-active" data-cuota="$30.000" data-total="$150.000" aria-pressed="true">Cuota de $30.000</button>
+              <button type="button" class="tab" data-cuota="$60.000" data-total="$300.000" aria-pressed="false">Cuota de $60.000</button>
+            </div>
+            <p>En una cadena de 5 personas con cuotas semanales de <strong data-cuota>$30.000</strong>, cada semana una persona recibe <strong data-total>$150.000</strong>. Pones <span data-total>$150.000</span> en total y recibes <span data-total>$150.000</span>: lo mismo que pones.</p>
             <ul class="checks">
               <li>Grupos aleatorios: no necesitas conseguir a nadie</li>
               <li>Sin rendimientos: recibes lo mismo que pones</li>
@@ -140,7 +148,7 @@
             <div class="chain__row"><span>Semana 3</span><div class="dots"><i></i><i></i><i class="on you"></i><i></i><i></i></div></div>
             <div class="chain__row"><span>Semana 4</span><div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i></div></div>
             <div class="chain__row"><span>Semana 5</span><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
-            <p class="chain__legend"><i class="on you"></i> Tu turno: recibes $150.000</p>
+            <p class="chain__legend"><i class="on you"></i> Tu turno: recibes <span data-total>$150.000</span></p>
           </div>
         </div>
         <p class="fineprint center">*Ejemplo ilustrativo. Los montos, frecuencias y cupos disponibles se muestran en la app antes de pagar.</p>
@@ -264,7 +272,7 @@
         <p>Tu opinión es muy importante para nosotros. Escríbenos por cualquiera de nuestros canales.</p>
         <div class="social">
           <a href="https://www.instagram.com/tuturnocol/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-          <a href="https://www.tiktok.com/@tuturnovzla" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+          <a href="https://www.tiktok.com/@tuturno.col" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
           <a href="https://www.linkedin.com/company/tu-turno" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
         </div>
       </div>

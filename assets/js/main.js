@@ -16,6 +16,19 @@
     });
   });
 
+  // Ejemplo de la cadena: cambia cuota y total según el botón elegido
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-pressed', t === tab);
+      });
+      document.querySelectorAll('span[data-cuota], strong[data-cuota]').forEach((el) => { el.textContent = tab.dataset.cuota; });
+      document.querySelectorAll('span[data-total], strong[data-total]').forEach((el) => { el.textContent = tab.dataset.total; });
+    });
+  });
+
   const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
