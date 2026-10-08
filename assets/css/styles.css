@@ -90,8 +90,13 @@ p { margin: 0 0 1em; }
   background: radial-gradient(circle at 30% 30%, var(--blue-light), var(--blue));
   opacity: .14; filter: blur(4px);
 }
-.hero__media img { position: relative; animation: float 6s ease-in-out infinite; }
-@keyframes float { 50% { transform: translateY(-12px); } }
+.hero__media img { position: relative; will-change: transform; }
+
+/* Título partido en palabras para la entrada (hero.js) */
+.hero h1 .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero h1 .word__inner { display: inline-block; transform-origin: 0 100%; will-change: transform; }
+/* Mientras GSAP aplica los estados iniciales el Hero no se pinta, para evitar parpadeos */
+.js-anim .hero__inner, .js-anim .nav__inner { visibility: hidden; }
 
 /* ===== Cita ===== */
 .quote { background: var(--blue); color: var(--white); padding: 40px 0; }
@@ -269,6 +274,5 @@ p { margin: 0 0 1em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero__media img { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
