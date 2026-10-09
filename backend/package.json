@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test:schema": "node tests/schema.test.mjs schema.sql"
+    "test:schema": "node tests/schema.test.mjs schema.sql",
+    "fingerprint": "node tests/fingerprint.mjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.2.17"

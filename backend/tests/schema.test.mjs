@@ -28,9 +28,8 @@ try { await db.exec(schema); check('schema.sql carga completo', true); }
 catch (e) { check('schema.sql carga completo', false, e.message); process.exit(1); }
 
 await db.exec(`
-  grant usage on schema public to authenticated;
+  grant usage on schema public to authenticated, anon;
   grant select on all tables in schema public to authenticated;
-  grant insert on support_tickets, data_requests to authenticated;
 `);
 
 const U = [...Array(7)].map((_, i) => `00000000-0000-0000-0000-00000000000${i + 1}`);
@@ -146,6 +145,12 @@ await db.exec(`set role authenticated; select set_config('request.jwt.claim.sub'
 check('participante ve su cadena', (await db.query(`select count(*)::int n from chains`)).rows[0].n === 1);
 check('no ve la otra cadena', (await db.query(`select count(*)::int n from chains where id = '${chain2}'`)).rows[0].n === 0);
 check('ve solo su perfil', (await db.query(`select count(*)::int n from profiles`)).rows[0].n === 1);
+await db.exec(`update profiles set full_name = 'Nuevo nombre'`);
+check('puede cambiar su nombre', (await db.query(`select full_name from profiles`)).rows[0].full_name === 'Nuevo nombre');
+await expectError('no puede cambiarse el estado ni la verificación',
+  `update profiles set status = 'active', kyc_status = 'approved'`, /permission denied/);
+await expectError('no puede escribir directo en cuotas',
+  `update installments set status = 'confirmed'`, /permission denied/);
 check('ve sus 4 cuotas a pagar y las 4 que recibe', (await db.query(`select count(*)::int n from installments`)).rows[0].n === 8);
 const sum = (await db.query(`select receive_cop::int r, turn_position, my_turn_date::text d, members_count::int n from my_chain_summary`)).rows;
 check('resumen: recibe 300.000 (5 cuotas) en su turno 1 el 15-oct', sum.length === 1 && sum[0].r === 300000 && sum[0].d === '2026-10-15', JSON.stringify(sum));
@@ -156,6 +161,9 @@ check('no ve códigos OTP ni evaluaciones de riesgo',
 await db.exec(`select set_config('request.jwt.claim.sub', '${U[5]}', false);`);
 check('quien no participa no ve la cadena ni sus llaves',
   (await db.query(`select (select count(*) from chains) + (select count(*) from payout_methods_shared) n`)).rows[0].n == 0);
+await db.exec(`reset role; set role anon; select set_config('request.jwt.claim.sub', '', false);`);
+check('sin sesión ve el catálogo', (await db.query(`select count(*)::int n from chain_products`)).rows[0].n === 1);
+await expectError('sin sesión no lee perfiles', `select * from profiles`, /permission denied/);
 await db.exec(`reset role;`);
 
 console.log(`\n${ok} correctas, ${fail} fallidas`);

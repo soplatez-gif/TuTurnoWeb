@@ -600,8 +600,8 @@ create index notifications_user on notifications (user_id, created_at desc);
 -- ---------------------------------------------------------------------
 -- Vistas
 -- ---------------------------------------------------------------------
--- Lo que la app muestra antes de pagar: cuánto pones, cuánto recibes y en
--- qué fecha te toca (landing: "Tu fecha desde el inicio").
+-- Lo que la app muestra de cada cadena: cuánto pones, cuánto recibes y, cuando
+-- la cadena se llena y se asignan los turnos, en qué fecha te toca.
 create view my_chain_summary with (security_invoker = true) as
 select
   m.user_id,
@@ -713,6 +713,17 @@ select distinct pm.id, pm.user_id, pm.type, pm.institution, pm.account_identifie
 -- Tablas sin política para authenticated (otp_challenges, risk_assessments,
 -- coverages, coverage_allocations, collection_contacts, commission_refunds)
 -- quedan cerradas: solo las toca la API con service_role.
+
+-- Supabase da acceso a anon (sin sesión) a toda tabla nueva. RLS ya lo frena,
+-- pero se quita explícitamente: anon solo lee el catálogo público.
+revoke all on all tables in schema public from anon;
+grant select on legal_documents, chain_products, co_holidays to anon;
+-- La app con sesión solo lee (las escrituras pasan por la API), salvo las
+-- solicitudes que el usuario crea directamente.
+revoke insert, update, delete, truncate on all tables in schema public from authenticated;
+grant insert on support_tickets, data_requests to authenticated;
+-- Solo nombre y correo: estado, verificación y teléfono se cambian por la API.
+grant update (full_name, email) on profiles to authenticated;
 
 -- ---------------------------------------------------------------------
 -- Datos iniciales
