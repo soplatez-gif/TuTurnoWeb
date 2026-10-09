@@ -1,4 +1,4 @@
-// Menú móvil, sombra del encabezado y aparición de secciones al hacer scroll
+// Menú móvil, sombra del encabezado y aparición de secciones (respaldo si GSAP no carga)
 (function () {
   const nav = document.querySelector('.nav');
   const toggle = document.querySelector('.nav__toggle');
@@ -33,7 +33,8 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  if (!('IntersectionObserver' in window)) return;
+  // Con GSAP disponible las apariciones las hace scroll.js; esto queda solo como respaldo
+  if (window.gsap || !('IntersectionObserver' in window)) return;
   const targets = document.querySelectorAll('.card, .step, .example, .feature, .compare__col, .faq details, .cta__inner');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
