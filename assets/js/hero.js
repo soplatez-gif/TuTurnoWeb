@@ -66,23 +66,23 @@
     // Los botones tienen transition CSS en transform: se apaga mientras GSAP los mueve
     gsap.set(desktop ? [...btns, '.nav__cta'] : btns, { transition: 'none' });
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } });
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out', duration: 0.8 } });
 
     tl.from(navItems, {
       y: -16, autoAlpha: 0, duration: 0.7, stagger: 0.05,
       clearProps: 'transform,opacity,visibility,transition'
     }, 0)
       .from(q('.pill'), { y: 14, scale: 0.92, autoAlpha: 0, duration: 0.7, ease: 'back.out(1.6)' }, 0.15)
-      .from(words, { yPercent: 115, rotate: 4, duration: 1, ease: 'power4.out', stagger: 0.045 }, 0.25)
-      .from(q('.lead'), { y: 24, autoAlpha: 0 }, '-=0.6')
+      .from(words, { yPercent: 110, rotate: 3, duration: 0.85, ease: 'expo.out', stagger: 0.035 }, 0.25)
+      .from(q('.lead'), { y: 16, autoAlpha: 0 }, '-=0.6')
       .from(btns, {
-        y: 22, autoAlpha: 0, stagger: 0.1,
+        y: 16, autoAlpha: 0, stagger: 0.08,
         clearProps: 'transform,opacity,visibility,transition'
       }, '-=0.6')
       .from(q('.stats > div'), { y: 18, autoAlpha: 0 }, '-=0.6')
       .from(q('.fineprint'), { autoAlpha: 0, duration: 0.8, ease: 'power2.out' }, '-=0.5')
       .from(blob, { scale: 0.6, autoAlpha: 0, duration: 1.4, ease: 'expo.out' }, 0.2)
-      .from(media, { y: 90, rotate: -3, autoAlpha: 0, duration: 1.3, ease: 'power3.out' }, 0.35);
+      .from(media, { y: 48, rotate: -2, autoAlpha: 0, duration: 1.1, ease: 'expo.out' }, 0.35);
 
     // Contador de descargas: 0 → 500.000 con formato colombiano
     if (stat) {

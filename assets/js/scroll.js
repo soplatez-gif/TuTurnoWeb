@@ -15,7 +15,7 @@
     if (!els.length) return null;
     gsap.set(els, { transition: 'none' });
     return gsap.from(els, {
-      y: 40, autoAlpha: 0, duration: 0.9, ease: 'power3.out', clearProps: CLEAR,
+      y: 24, autoAlpha: 0, duration: 0.8, ease: 'expo.out', clearProps: CLEAR,
       ...vars,
       scrollTrigger: { trigger: trigger || els[0], start: START, once: true }
     });
@@ -25,12 +25,12 @@
   const batch = (selector, vars) => {
     const els = gsap.utils.toArray(selector);
     if (!els.length) return;
-    gsap.set(els, { y: 40, autoAlpha: 0, transition: 'none', ...vars });
+    gsap.set(els, { y: 24, autoAlpha: 0, transition: 'none', ...vars });
     ScrollTrigger.batch(els, {
       start: START, once: true,
       onEnter: (group) => gsap.to(group, {
-        y: 0, x: 0, scale: 1, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
-        stagger: 0.12, overwrite: true, clearProps: CLEAR
+        y: 0, x: 0, scale: 1, autoAlpha: 1, duration: 0.8, ease: 'expo.out',
+        stagger: 0.08, overwrite: true, clearProps: CLEAR
       })
     });
   };
@@ -52,7 +52,7 @@
     }
 
     // ¿Por qué TuTurno?
-    batch('.card', { y: 50, scale: 0.96 });
+    batch('.card', { y: 28, scale: 0.98 });
 
     // Cómo funciona: tarjetas de pasos y, dentro, el ícono con rebote
     batch('.step');
@@ -67,10 +67,10 @@
     // se "enciende" semana a semana quién recibe, terminando en tu turno
     const example = document.querySelector('.example');
     if (example) {
-      const fromSide = window.matchMedia('(min-width: 961px)').matches ? 40 : 0;
+      const fromSide = window.matchMedia('(min-width: 961px)').matches ? 24 : 0;
       gsap.set(example, { transition: 'none' });
       gsap.timeline({ scrollTrigger: { trigger: example, start: 'top 80%', once: true } })
-        .from(example, { y: 50, autoAlpha: 0, duration: 0.9, ease: 'power3.out', clearProps: CLEAR })
+        .from(example, { y: 28, autoAlpha: 0, duration: 0.8, ease: 'expo.out', clearProps: CLEAR })
         .from('.example__text > *', { x: -fromSide, y: fromSide ? 0 : 20, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08 }, '-=0.5')
         .from('.chain', { x: fromSide, y: fromSide ? 0 : 20, autoAlpha: 0, duration: 0.9, ease: 'power3.out' }, '<0.1')
         .from('.chain__row', { autoAlpha: 0, y: 10, duration: 0.5, ease: 'power2.out', stagger: 0.08 }, '-=0.5')
@@ -79,14 +79,14 @@
     }
 
     // Respaldo: Tutu entra con un leve giro y las garantías se escalonan
-    reveal('.split__media img', { y: 60, scale: 0.9, rotate: -6, duration: 1.1 });
+    reveal('.split__media img', { y: 32, scale: 0.96, rotate: -3, duration: 0.9 });
     reveal('.split__text > h2, .split__text > p', { stagger: 0.12 }, '.split__text');
     batch('.feature', { y: 0, x: 30 });
 
     // Sí es / No es: cada columna desde su lado y luego sus puntos uno a uno
     const compare = document.querySelector('.compare');
     if (compare) {
-      const side = window.matchMedia('(min-width: 821px)').matches ? 50 : 0;
+      const side = window.matchMedia('(min-width: 821px)').matches ? 28 : 0;
       gsap.timeline({ scrollTrigger: { trigger: compare, start: START, once: true } })
         .from('.compare__col--yes', { x: -side, y: side ? 0 : 30, autoAlpha: 0, duration: 0.9, ease: 'power3.out' })
         .from('.compare__col--no', { x: side, y: side ? 0 : 30, autoAlpha: 0, duration: 0.9, ease: 'power3.out' }, '<0.1')
@@ -100,10 +100,10 @@
     const cta = document.querySelector('.cta__inner');
     if (cta) {
       gsap.timeline({ scrollTrigger: { trigger: cta, start: 'top 80%', once: true } })
-        .from(cta, { y: 50, scale: 0.96, autoAlpha: 0, duration: 1, ease: 'power3.out' })
+        .from(cta, { y: 28, scale: 0.98, autoAlpha: 0, duration: 0.8, ease: 'expo.out' })
         .from('.cta__text > h2, .cta__text > p', { y: 24, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1 }, '-=0.6')
         .from('.stores a', { y: 20, autoAlpha: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1 }, '-=0.5')
-        .from('.cta__logo', { rotate: -30, scale: 0.7, autoAlpha: 0, duration: 1.1, ease: 'back.out(1.6)' }, '-=0.9');
+        .from('.cta__logo', { rotate: -20, scale: 0.8, autoAlpha: 0, duration: 0.9, ease: 'back.out(1.6)' }, '-=0.9');
     }
   });
 
