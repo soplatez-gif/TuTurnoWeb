@@ -1,0 +1,11 @@
+{
+  "name": "tuturno-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:schema": "node tests/schema.test.mjs schema.sql"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.2.17"
+  }
+}
