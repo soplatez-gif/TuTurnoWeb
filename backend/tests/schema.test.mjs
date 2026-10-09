@@ -148,7 +148,7 @@ check('no ve la otra cadena', (await db.query(`select count(*)::int n from chain
 check('ve solo su perfil', (await db.query(`select count(*)::int n from profiles`)).rows[0].n === 1);
 check('ve sus 4 cuotas a pagar y las 4 que recibe', (await db.query(`select count(*)::int n from installments`)).rows[0].n === 8);
 const sum = (await db.query(`select receive_cop::int r, turn_position, my_turn_date::text d, members_count::int n from my_chain_summary`)).rows;
-check('resumen: recibe 240.000 en su turno 1 el 15-oct', sum.length === 1 && sum[0].r === 240000 && sum[0].d === '2026-10-15', JSON.stringify(sum));
+check('resumen: recibe 300.000 (5 cuotas) en su turno 1 el 15-oct', sum.length === 1 && sum[0].r === 300000 && sum[0].d === '2026-10-15', JSON.stringify(sum));
 check('ve las llaves de los 5 participantes de su cadena', (await db.query(`select count(*)::int n from payout_methods_shared`)).rows[0].n === 5);
 check('no lee la tabla de llaves ajena directo', (await db.query(`select count(*)::int n from payout_methods`)).rows[0].n === 1);
 check('no ve códigos OTP ni evaluaciones de riesgo',

@@ -129,5 +129,5 @@ Pagar la comisión ──────────► POST /commissions/:id/check
 Verificar identidad ────────► POST /me/kyc
 Esperar que se llene ───────► GET /me/chains (cupos 2 de 5…)
 Pagar cada cuota ───────────► POST /installments/:id/payment-order → /proofs
-Recibir el turno ───────────► POST /installments/:id/confirm (las 4 cuotas de los demás)
+Recibir el turno ───────────► POST /installments/:id/confirm (4 cuotas de los demás + la propia = 5)
 ```

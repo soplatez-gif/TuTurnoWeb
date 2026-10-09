@@ -412,6 +412,10 @@ create table cycles (
 );
 
 -- Lo que cada participante le debe al receptor del ciclo (4 cuotas por ciclo).
+-- Cada participante pone 5 cuotas en total: 4 transferencias a los demás y,
+-- en su propio turno, su cuota se queda con él. Por eso recibe el total de la
+-- cadena (5 cuotas = 300.000) y aquí solo se registran las 4 que se mueven.
+-- La comisión del 20 % va aparte, a TuTurno (tabla commissions).
 create table installments (
   id                 uuid primary key default gen_random_uuid(),
   cycle_id           uuid not null references cycles (id) on delete cascade,
@@ -606,7 +610,7 @@ select
   c.frequency,
   p.installment_cop,
   p.total_cop,
-  p.total_cop - p.installment_cop as receive_cop,          -- recibes la suma de las cuotas de los demás
+  p.total_cop        as receive_cop,                       -- recibes las 5 cuotas: las 4 de los demás + la tuya
   m.turn_position,
   cy.cutoff_date     as my_turn_date,
   (select count(*) from chain_members x
