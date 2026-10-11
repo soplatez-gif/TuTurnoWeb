@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuTurno Colombia — La cadena de ahorro con reglas claras</title>
+  <meta name="description" content="Únete a una cadena de ahorro desde la app. Todos ponen la misma cuota, cada uno recibe el total en su fecha y, si alguien no paga, TuTurno cubre.">
+  <meta name="theme-color" content="#F7F8FD">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/icono.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1">
+  <script>
+    // Sin JS el menú queda siempre a la vista
+    document.documentElement.classList.add('js');
+    // Oculta el Hero hasta que GSAP aplique la entrada; si algo falla en 3 s, se muestra igual
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      document.documentElement.classList.add('js-anim');
+      setTimeout(function () { document.documentElement.classList.remove('js-anim'); }, 3000);
+    }
+  </script>
+</head>
+<body>
+  <a href="#contenido" class="skip">Saltar al contenido</a>
+
+  <!-- Campo de puntos de fondo: lo dibuja field.js -->
+  <canvas class="field" aria-hidden="true"></canvas>
+
+  <!-- ===== Encabezado ===== -->
+  <header class="bar">
+    <div class="bar__row">
+      <a href="#inicio" class="bar__pill glass bar__logo"><img src="../assets/img/logo.png" alt="TuTurno" width="170" height="41"></a>
+      <button type="button" class="bar__pill glass bar__toggle" aria-expanded="false" aria-controls="menu">
+        <span class="bar__toggle-text">Menú</span>
+        <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      </button>
+      <a href="#descarga" class="bar__pill bar__cta">Descarga la app</a>
+    </div>
+    <nav class="bar__menu glass" id="menu" aria-label="Principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#respaldo">Tu respaldo</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#descarga" class="btn btn--primary">Descarga la app</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio" data-field="side">
+      <h1 class="display hero__title">
+        <span class="line">La cadena de siempre,</span>
+        <span class="line line--in hl">con reglas claras</span>
+        <span class="line">y sin que nadie se vuele</span>
+      </h1>
+      <div class="hero__body">
+        <div class="hero__text">
+          <p class="label">La primera cadena digital de Colombia <svg viewBox="0 0 3 2" width="21" height="14" aria-hidden="true"><rect width="3" height="2" fill="#CE1126"/><rect width="3" height="1.5" fill="#003893"/><rect width="3" height="1" fill="#FCD116"/></svg></p>
+          <p class="lead">Únete a una cadena de ahorro desde tu celular. Todos ponen la misma cuota, cada uno recibe el total en su fecha y, si alguien no paga, <strong>TuTurno cubre</strong>.</p>
+          <div class="hero__actions">
+            <a href="#descarga" class="btn btn--primary"><span class="btn__arrow" aria-hidden="true">→</span> Descarga la app</a>
+            <a href="#como-funciona" class="btn btn--outline"><span class="btn__arrow" aria-hidden="true">→</span> Cómo funciona</a>
+          </div>
+          <p class="stat"><strong>+500.000</strong> descargas</p>
+          <p class="fineprint">*Aquí no hay rendimientos: recibes lo mismo que pones. TuTurno cobra una comisión única por usar la plataforma, que ves antes de pagar. Aplican <a href="https://tu-turno.app/co/terminos-y-condiciones/" target="_blank" rel="noopener">términos y condiciones</a>.</p>
+        </div>
+        <div class="hero__media">
+          <img src="../assets/img/telefonos.png" alt="La app de TuTurno en dos celulares" width="1000" height="950">
+        </div>
+      </div>
+      <a href="#confianza" class="hero__scroll label">Sigue bajando <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+    </section>
+
+    <!-- ===== Mensaje de confianza ===== -->
+    <section class="statement" id="confianza" data-field="halo">
+      <blockquote class="statement__text">“Tu plata va directo entre participantes, y si alguien no paga, <span class="hl">TuTurno cubre</span>.”</blockquote>
+      <ul class="notes">
+        <li class="note glass">Sin papelitos, sin perseguir a nadie.</li>
+        <li class="note glass">La app arma los grupos: no necesitas conseguir a nadie.</li>
+        <li class="note glass">Sin rendimientos: recibes lo mismo que pones.</li>
+      </ul>
+    </section>
+
+    <!-- ===== Por qué TuTurno ===== -->
+    <section class="statement" data-field="swirl">
+      <h2 class="statement__text">La cadena de toda la vida, <span class="hl">organizada en una app</span>.</h2>
+      <a href="#como-funciona" class="btn btn--outline glass"><span class="btn__arrow" aria-hidden="true">→</span> Cómo funciona</a>
+    </section>
+
+    <section class="section" id="por-que" data-field="calm">
+      <h2 class="label section__label">¿Por qué TuTurno?</h2>
+      <ul class="cards">
+        <li class="card surface">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="card__body">
+            <h3>Tu turno está garantizado</h3>
+            <p>Si alguien de tu grupo no paga, TuTurno cubre su aporte y tú recibes tu turno completo.</p>
+          </div>
+        </li>
+        <li class="card surface">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/><path d="M14.5 10H18M14.5 13.5H18"/></svg>
+          <div class="card__body">
+            <h3>Identidad verificada</h3>
+            <p>Cada participante valida su identidad antes de entrar. Sabes que en tu cadena hay personas reales.</p>
+          </div>
+        </li>
+        <li class="card surface">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9.5 14.5 1.8 1.8 3.2-3.3"/></svg>
+          <div class="card__body">
+            <h3>Tu fecha, clara</h3>
+            <p>Antes de pagar ves cuánto pones y cuánto recibes. Cuando tu cadena se llena, la app te muestra en qué fecha te toca recibir. Sin sorpresas.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="fineprint center">*La cobertura de TuTurno aplica según la Garantía de continuidad del turno descrita en los <a href="https://tu-turno.app/co/terminos-y-condiciones/" target="_blank" rel="noopener">términos y condiciones</a>.</p>
+    </section>
+
+    <!-- ===== Cómo funciona ===== -->
+    <section class="section" id="como-funciona" data-field="calm">
+      <p class="label section__label">Cómo funciona</p>
+      <h2 class="statement__text section__title">3 pasos y <span class="hl">te llega tu turno</span></h2>
+      <p class="section__sub">Todos ponen, uno recibe, y en su fecha le toca a cada quien.</p>
+      <ol class="cards">
+        <li class="card surface">
+          <div class="card__top">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M12 7v6m-2.5-2.5L12 13l2.5-2.5"/><path d="M10.5 18.5h3"/></svg>
+            <span class="card__num" aria-hidden="true">01</span>
+          </div>
+          <div class="card__body">
+            <h3>Descarga y verifícate</h3>
+            <p>Baja la app, crea tu cuenta y valida tu identidad con tu documento. Toma pocos minutos.</p>
+          </div>
+        </li>
+        <li class="card surface">
+          <div class="card__top">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>
+            <span class="card__num" aria-hidden="true">02</span>
+          </div>
+          <div class="card__body">
+            <h3>Elige tu cadena</h3>
+            <p>Escoge el monto que quieres recibir y la frecuencia. Entras a un grupo con otras personas que ponen la misma cuota.</p>
+          </div>
+        </li>
+        <li class="card surface">
+          <div class="card__top">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>
+            <span class="card__num" aria-hidden="true">03</span>
+          </div>
+          <div class="card__body">
+            <h3>Paga tu cuota y recibe</h3>
+            <p>Pagas cada cuota desde la app. Cuando llega tu fecha, recibes el total de la cadena.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="frame example">
+        <div class="cell surface example__text">
+          <h3>Un ejemplo con números</h3>
+          <div class="tabs" role="group" aria-label="Elige un ejemplo">
+            <button type="button" class="tab is-active" data-cuota="$30.000" data-total="$150.000" aria-pressed="true">Cuota de $30.000</button>
+            <button type="button" class="tab" data-cuota="$60.000" data-total="$300.000" aria-pressed="false">Cuota de $60.000</button>
+          </div>
+          <p>En una cadena de 5 personas con cuotas semanales de <strong data-cuota>$30.000</strong>, cada semana una persona recibe <strong data-total>$150.000</strong>. Pones <span data-total>$150.000</span> en total y recibes <span data-total>$150.000</span>: lo mismo que pones.</p>
+          <ul class="checks">
+            <li>La app arma los grupos: no necesitas conseguir a nadie</li>
+            <li>Sin rendimientos: recibes lo mismo que pones</li>
+            <li>Comisión única de la plataforma, que ves antes de pagar y no se descuenta de tu turno</li>
+            <li>Si alguien no paga, TuTurno cubre</li>
+          </ul>
+        </div>
+        <div class="cell surface chain" aria-label="Cadena de 5 personas: cada semana recibe una">
+          <div class="chain__row"><span>Semana 1</span><div class="chain__dots"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="chain__row"><span>Semana 2</span><div class="chain__dots"><i></i><i class="on"></i><i></i><i></i><i></i></div></div>
+          <div class="chain__row"><span>Semana 3</span><div class="chain__dots"><i></i><i></i><i class="on you"></i><i></i><i></i></div></div>
+          <div class="chain__row"><span>Semana 4</span><div class="chain__dots"><i></i><i></i><i></i><i class="on"></i><i></i></div></div>
+          <div class="chain__row"><span>Semana 5</span><div class="chain__dots"><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
+          <p class="chain__legend"><i class="on you"></i> Tu turno: recibes <span data-total>$150.000</span></p>
+        </div>
+      </div>
+      <p class="fineprint center">*Ejemplo ilustrativo. Los montos, frecuencias y cupos disponibles se muestran en la app antes de pagar.</p>
+    </section>
+
+    <!-- ===== Respaldo ===== -->
+    <section class="bigtext" id="respaldo" data-field="ring">
+      <h2 class="display bigtext__title">
+        <span class="line">¿Alguien se sale</span>
+        <span class="line">de la cadena?</span>
+        <span class="line hl">No importa.</span>
+      </h2>
+    </section>
+
+    <section class="section" data-field="calm">
+      <div class="frame split">
+        <div class="cell surface split__media">
+          <img src="../assets/img/tutu.png" alt="Tutu, el personaje de TuTurno" width="600" height="600" loading="lazy">
+        </div>
+        <div class="cell surface split__text">
+          <p class="lead">El miedo de siempre con las cadenas es que alguien reciba y deje de pagar. En TuTurno las responsabilidades son individuales: si un participante no responde, responde la plataforma.</p>
+          <ul class="rows">
+            <li class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h14l-3.5-3.5"/><path d="M20 16H6l3.5 3.5"/></svg>
+              <div><h3>Directo entre participantes</h3><p>Tus cuotas van a quien le toca recibir. TuTurno organiza la cadena y lleva el registro de cada pago.</p></div>
+            </li>
+            <li class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+              <div><h3>Garantía de continuidad del turno</h3><p>Si alguien se atrasa, TuTurno cubre su aporte para que tu turno llegue completo.</p></div>
+            </li>
+            <li class="row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><path d="M12 14.5v2"/></svg>
+              <div><h3>Pagos electrónicos</h3><p>Pagas desde la app, sin efectivo ni consignaciones a desconocidos.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Qué no es ===== -->
+    <section class="section" data-field="calm">
+      <p class="label section__label">Lo que TuTurno es, y lo que no es</p>
+      <h2 class="statement__text section__title">Claro desde el principio</h2>
+      <div class="frame compare">
+        <div class="cell surface compare__col compare__col--yes">
+          <h3>Sí es</h3>
+          <ul>
+            <li>Una cadena de ahorro colaborativo, organizada en una app</li>
+            <li>Recibir lo mismo que pones, en una fecha que conoces</li>
+            <li>Personas con identidad verificada</li>
+            <li>Una comisión única y visible por usar la plataforma</li>
+          </ul>
+        </div>
+        <div class="cell surface compare__col compare__col--no">
+          <h3>No es</h3>
+          <ul>
+            <li>Una promesa de ganancias: aquí nadie promete rendimientos</li>
+            <li>Una app para conseguir plata que no has puesto</li>
+            <li>Una pirámide: no tienes que traer a nadie para recibir</li>
+            <li>Una cadena por WhatsApp con desconocidos y sin reglas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Preguntas ===== -->
+    <section class="section section--narrow" id="preguntas" data-field="calm">
+      <h2 class="statement__text section__title">Preguntas <span class="hl">frecuentes</span></h2>
+      <div class="faq surface">
+        <details>
+          <summary>¿Esto es una pirámide?</summary>
+          <p>No. En una pirámide te prometen ganancias y necesitas meter a más gente para cobrar. En TuTurno recibes lo mismo que pones, el grupo es fijo desde el inicio y no tienes que invitar a nadie.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si alguien de mi grupo no paga?</summary>
+          <p>TuTurno cubre su aporte y tú recibes tu turno completo. Es la Garantía de continuidad del turno, que está en los términos y condiciones.</p>
+        </details>
+        <details>
+          <summary>¿Puedo armar la cadena con mis conocidos?</summary>
+          <p>No. La app arma los grupos con personas que eligieron la misma cadena y asigna el orden de los turnos según el cumplimiento de cada participante. Así no tienes que convencer ni perseguir a nadie.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto cobra TuTurno?</summary>
+          <p>Una comisión única por usar la plataforma, que se paga al entrar a la cadena. La ves antes de pagar y no se descuenta de lo que recibes en tu turno.</p>
+        </details>
+        <details>
+          <summary>¿Cómo sé cuándo me toca recibir?</summary>
+          <p>Cuando tu cadena se llena, la app te muestra en qué fecha te toca recibir, cuánto pagas por cuota y cuánto recibes.</p>
+        </details>
+        <details>
+          <summary>¿Qué necesito para empezar?</summary>
+          <p>Un celular, tu documento de identidad para verificar tu cuenta y un medio de pago habilitado en la app.</p>
+        </details>
+      </div>
+      <p class="center"><a href="https://tu-turno.app/co/preguntas-frecuentes/" target="_blank" rel="noopener" class="btn btn--outline glass"><span class="btn__arrow" aria-hidden="true">→</span> Ver todas las preguntas</a></p>
+    </section>
+
+    <!-- ===== Descarga ===== -->
+    <section class="sock" id="descarga" data-field="calm">
+      <div class="sock__text">
+        <h2 class="display">
+          <span class="line">¿Listo para tu</span>
+          <span class="line line--in">primera cadena?</span>
+        </h2>
+        <p class="lead">Descarga la app, verifica tu cuenta y únete a una cadena. Echao pa'lante.</p>
+        <div class="stores">
+          <a href="https://play.google.com/store/apps/details?id=com.limonbyte.prestame" target="_blank" rel="noopener"><img src="../assets/img/google-play.png" alt="Disponible en Google Play" width="160" height="58"></a>
+          <a href="https://apps.apple.com/us/app/tu-turno/id6554001219" target="_blank" rel="noopener"><img src="../assets/img/app-store.png" alt="Descárgala en App Store" width="150" height="59"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Pie de página ===== -->
+  <footer class="footer" id="contacto">
+    <div class="frame frame--corners">
+      <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <div class="footer__grid">
+        <nav class="cell surface footer__nav" aria-label="Pie de página">
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#respaldo">Tu respaldo</a>
+          <a href="#preguntas">Preguntas frecuentes</a>
+          <a href="#descarga">Descarga la app</a>
+        </nav>
+        <div class="cell surface footer__contact">
+          <p>Tu opinión es muy importante para nosotros. Escríbenos por cualquiera de nuestros canales.</p>
+          <a href="mailto:info@tu-turno.app" class="btn btn--outline"><span class="btn__arrow" aria-hidden="true">→</span> info@tu-turno.app</a>
+          <!-- PENDIENTE: reemplazar por la línea de WhatsApp Business +57 cuando esté activa (plan de acción del comité, 7-oct) -->
+          <a href="https://wa.me/17863918330" target="_blank" rel="noopener" class="btn btn--outline"><span class="btn__arrow" aria-hidden="true">→</span> WhatsApp de atención</a>
+        </div>
+        <div class="cell surface footer__brand">
+          <img src="../assets/img/logo.png" alt="TuTurno" width="170" height="41" loading="lazy">
+          <div class="social">
+            <a href="https://www.instagram.com/tuturnocol/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+            <a href="https://www.tiktok.com/@tuturno.col" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6Z"/></svg></a>
+            <a href="https://www.linkedin.com/company/tu-turno" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.9 8.8H3.8V20h3.1V8.8ZM5.3 3.5a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6ZM20.2 13.6c0-3-1.6-4.9-4.2-4.9a3.6 3.6 0 0 0-3.2 1.7V8.8H9.8V20h3.1v-5.9c0-1.6.6-2.8 2.1-2.8s2 1.2 2 2.8V20h3.2v-6.4Z"/></svg></a>
+          </div>
+        </div>
+        <div class="cell surface footer__links">
+          <a href="https://tu-turno.app/co/terminos-y-condiciones/" target="_blank" rel="noopener">Términos y condiciones</a>
+          <a href="https://tu-turno.app/politicas-de-privacidad/" target="_blank" rel="noopener">Política de privacidad</a>
+          <a href="https://tu-turno.app/politica-de-cookies/" target="_blank" rel="noopener">Política de cookies</a>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <p>© 2026 TuTurno Novasystems LLC · 3625 NW 82nd Ave, Suite 100KK, Doral, FL 33166, USA · Todos los derechos reservados.</p>
+        <p>TuTurno organiza cadenas de ahorro colaborativo en las que los aportes van directo entre participantes. No ofrece rendimientos: cada participante recibe lo mismo que pone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/17863918330" class="wa-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7a10.7 10.7 0 0 1-5.5-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.5 6.5 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></svg>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/motion.js?v=1" defer></script>
+  <script src="assets/js/field.js?v=1" defer></script>
+</body>
+</html>
